@@ -1,0 +1,41 @@
+.tabs-container  {
+    top: 0;
+    width: fit-content;
+    /* border: cornflowerblue 4px solid; */
+    padding-left: 20px;
+    padding-right: 20px;
+    /* gap: 20px;
+    border-radius: 30px; */
+    margin: auto;
+    display: flex;
+}
+
+.tab-left {
+    border-bottom: cornflowerblue 4px solid;
+    border-top: cornflowerblue 4px solid;
+    border-left: cornflowerblue 4px solid;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.tab-right {
+    border-bottom: cornflowerblue 4px solid;
+    border-top: cornflowerblue 4px solid;
+    border-right: cornflowerblue 4px solid;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.tab {
+    padding-right: 10px;
+    padding-left: 10px;
+    font-weight: 600;
+    font-size: small;
+    cursor: pointer;
+}
+
+.active {
+    background-color: cornflowerblue;
+    color: white;
+    cursor: none;
+}
