@@ -1,0 +1,30 @@
+.details-container {
+    display: grid;
+    padding: 10px;
+}
+
+.details-video {
+    border: black solid 1px;
+    width: 100%;
+}
+
+/* img {
+    height: fit-content;
+} */
+
+.details-info {
+
+}
+
+p {
+    font-size: small;
+}
+
+.back-button {
+    color: cornflowerblue;
+    font-size: large;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: 10px;
+    width: fit-content;
+}

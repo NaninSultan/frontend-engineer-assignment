@@ -1,7 +1,8 @@
-import { faSearch, faVideoCamera } from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { ReactNode, FunctionComponent, useState } from "react";
 import "./Layout.css";
+
 
 type LayoutProps = {
     children: ReactNode
