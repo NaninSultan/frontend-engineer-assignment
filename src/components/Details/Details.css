@@ -8,10 +8,6 @@
     width: 100%;
 }
 
-/* img {
-    height: fit-content;
-} */
-
 .details-info {
 
 }
@@ -27,4 +23,13 @@ p {
     cursor: pointer;
     margin-bottom: 10px;
     width: fit-content;
+}
+
+.back-button:hover {
+    color: rgb(72, 112, 185);
+}
+
+.button-container {
+    border-bottom: 1px solid cornflowerblue;
+    margin-bottom: 20px;
 }

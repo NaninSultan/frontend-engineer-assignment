@@ -6,13 +6,14 @@ import Results from './components/Results';
 
 function App() {
   return (
-    <Layout>
-      <Routes>
-        <Route path="/" element={<Results />}></Route>
-        <Route path="/details/:id" element={<Details />}></Route>
-      </Routes>
-    </Layout>
-
+    <>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Results />}></Route>
+          <Route path="/details/:id" element={<Details />}></Route>
+        </Routes>
+      </Layout>
+    </>
   );
 }
 
