@@ -8,20 +8,21 @@ import { showSearch } from '../../../features/search/searchSlice'
 type CardProps = {
     id?: number,
     title?: string,
-    image?: string
+    image?: string,
+    name?: string
 
 }
 
-const Card: FunctionComponent<CardProps> = ({ id, title, image }) => {
+const Card: FunctionComponent<CardProps> = ({ id, title, image, name }) => {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
     return (
         <div onClick={() => {navigate(`/details/${id}`), dispatch(showSearch(false))}} className="card-container">
-            <img src="https://m.media-amazon.com/images/I/81ExnOEcqzL._SY550_.jpg" className="card-image" />
+            <img src={`https://image.tmdb.org/t/p/w500${image}`} className="card-image" />
             <h3>
-                Movie Title
+                {title}{name}
             </h3>
         </div>
     )

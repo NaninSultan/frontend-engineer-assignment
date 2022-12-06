@@ -1,4 +1,4 @@
-import useDetails from "./useDetails";
-import useResults from "./useResults";
+import useTopTen from "./useTopTen";
+import useSearch from "./useSearch";
 
-export { useDetails, useResults };
+export { useTopTen, useSearch }

@@ -22,3 +22,9 @@
         grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 }
+
+.spinner {
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+}

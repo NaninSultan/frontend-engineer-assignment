@@ -1,13 +1,15 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 interface SearchProps {
     search: string,
-    showSearch: boolean
+    showSearch: boolean,
+    toggle: string
 }
 
 export const initialState: SearchProps = {
     search: '',
-    showSearch: false
+    showSearch: false,
+    toggle: 'tv'
 }
 
 export const pickupInputSlice = createSlice({
@@ -19,10 +21,13 @@ export const pickupInputSlice = createSlice({
         },
         showSearch: (state, action) => {
             state.showSearch = action.payload
+        },
+        setToggle: (state, action) => {
+            state.toggle = action.payload
         }
     }
 });
 
-export const { search, showSearch } = pickupInputSlice.actions;
+export const { search, showSearch, setToggle } = pickupInputSlice.actions;
 
 export default pickupInputSlice.reducer;

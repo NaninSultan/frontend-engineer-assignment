@@ -1,10 +1,10 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useEffect } from "react";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 import './Details.css'
 import { useDispatch } from 'react-redux';
-import { showSearch } from '../../features/search/searchSlice'
+import { showSearch } from '../../features/search/searchSlice';
 
 const Details: FunctionComponent = () => {
 
@@ -22,10 +22,9 @@ const Details: FunctionComponent = () => {
             {/* <video className='details-video' autoPlay loop muted>
                 <source src='' type='video/mp4' />
             </video> */}
-            <h2>Title</h2>
-
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3fLK-LZ3Kw_ZlDyonlvaEj4yjCgNpmdY1sA&usqp=CAU" className="details-image" />
             <div className="details-info">
+                <h2>Title</h2>
                 <p>Description eihpoeoif 1i fi1ioihfpo1fh porfh roefhoperp qeof pqero hor phur ehpor hgpuoh rgoh repogh rogh or ghoer hgoe hgoweh gwhg hwpogj hweprjg hwrjg hwer hgopowerh gojoewrh gwerhgoewr o rhgow hrgowhe rgohwer oghčwer gwer ghwr ghčwer ghwg hgr</p>
             </div>
         </div>

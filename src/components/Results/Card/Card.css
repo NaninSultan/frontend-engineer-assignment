@@ -2,19 +2,21 @@
     border: cornflowerblue 2px solid;
     border-radius: 10px;
     cursor: pointer;
+    background-color: white;
 }
 
 .card-container:hover {
-    background-color: rgb(255, 250, 244);
+    background-color: wheat;
 }
 
 img {
     width: 100%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
     border-bottom: 1px solid cornflowerblue;
 }
 
 h3 {
     margin-left: 10px;
+    margin-right: 10px;
 }
