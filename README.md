@@ -1,46 +1,68 @@
-# Getting Started with Create React App
+# frontend-engineer-assignment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Displaying the top 10 rated TV shows and the top 10 movies, a search function for both, and a detailed view for individual items.
 
-## Available Scripts
+# Application description
 
-In the project directory, you can run:
+When the app loads, the TV SHOWS tab is selected.
+Clicking on a tab loads the top 10 MOVIES/TV SHOWS depending on the selected tab.
 
-### `npm start`
+The search field is live and react to any change in the input field.
+The search fires request on the search endpoint from TMDB and not filter the top 10 results.
+The search is performed only when there are 3 or more characters in the search bar and it should be triggered only one second after the user has stopped typing.
+When there are fewer than 3 characters in the search bar, the content reverts back to the top 10 MOVIES/TV SHOWS.
+When the search is performed, results appear under the search box.
+Switching between tabs while searching triggers the search again with the same search term for the selected tab and updates the results.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+When the user clicks on a specific MOVIE/TV SHOW, he is taken to the details view.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The Detailed View of the Movie/TV Show shows the cover image on top and in the case of Movies/TV Shows which have a trailer shows the trailer video instead of the cover image. Below the image/trailer is some basic information regarding the selected Movie/TV Show.
 
-### `npm test`
+The Back Button returns the user back to where he was and with the same state before clicking to see more information about a Movie/TV Show.
+(This means that the correct tab is selected and if the user came from a search - the search result with the search term is there. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+# Application main features:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Display of top 10 results
+Search Bar
+Tabs foe switching between Movies and TV Shows
+Display of detailed description
+Easy to integrate
+Responsive
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Technologies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Buillt with:
+HTML
+CSS
+Typescript
+React
+TMDB Api
+Axios
+Redux Toolkit
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# How to clone, install and start application:
+​
+-To get a local copy up and running follow these simple example steps:
+​
+1. First step is to clone the repository:
+​
+https://github.com/NaninSultan/frontend-engineer-assignment.git
+​
+2. Second step is to install NPM packages:
+​
+npm install
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Third step is to create .env file in the root directory containing:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    REACT_APP_API_KEY="**Your tmdb api key**"
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    REACT_APP_API_URL="https://api.themoviedb.org/3/"
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+    REACT_APP_IMG_URL="https://image.tmdb.org/t/p/original"
+​
+4. Fourth step is to start the project:
+​
+npm start

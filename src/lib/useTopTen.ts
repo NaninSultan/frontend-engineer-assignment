@@ -46,7 +46,7 @@ const useTopTen = () => {
     }, 1000)
 
     return () => clearTimeout(delayDebounceFn)
-  }, [searchState.toggle]);
+  }, [searchState.toggle, searchState.search]);
 
   return { resultsState };
 };

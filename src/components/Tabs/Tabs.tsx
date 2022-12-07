@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect, useState } from 'react'
+import React, { FunctionComponent, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '../../store';
 import { setToggle } from '../../features/search/searchSlice'
@@ -14,17 +14,17 @@ const Tabs: FunctionComponent = () => {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-          dispatch(setLoader(false))
+            dispatch(setLoader(false))
         }, 1000);
         return () => clearTimeout(timer);
-      }, [toggle]);
+    }, [toggle]);
 
     return (
         <div className='tabs-container'>
-            <div onClick={() => {dispatch(setToggle('tv')); dispatch(setLoader(true))}} className={`tab-left tab ${toggle === 'tv' ? 'active' : ''}`}>
+            <div onClick={() => { dispatch(setToggle('tv')); dispatch(setLoader(true)) }} className={`tab-left tab ${toggle === 'tv' ? 'active' : ''}`}>
                 TV Shows
             </div>
-            <div onClick={() => {dispatch(setToggle('movie')); dispatch(setLoader(true))}} className={`tab-right tab ${toggle === 'movie' ? 'active' : ''}`}>
+            <div onClick={() => { dispatch(setToggle('movie')); dispatch(setLoader(true)) }} className={`tab-right tab ${toggle === 'movie' ? 'active' : ''}`}>
                 Movies
             </div>
         </div>

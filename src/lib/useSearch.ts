@@ -12,7 +12,7 @@ const apiURL = process.env.REACT_APP_API_URL
 const useSearch = () => {
 
     const searchState = useSelector((state: RootState) => state.search)
-    const resultsState = useSelector((state:RootState) => state.resulstsList)
+    const resultsState = useSelector((state: RootState) => state.resulstsList)
     const dispatch = useDispatch()
     const navigate = useNavigate()
 

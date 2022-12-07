@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect, useState } from "react";
+import React, { FunctionComponent } from "react";
 import { useParams } from "react-router-dom";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,7 +10,7 @@ import useDetails from "../../lib/useDetails";
 import { useSelector } from 'react-redux'
 import { RootState } from "../../store";
 import { TailSpin } from 'react-loader-spinner';
-
+import NoData from '../../NoData.png'
 
 const DetailsPage: FunctionComponent = () => {
 
@@ -19,10 +19,12 @@ const DetailsPage: FunctionComponent = () => {
     const loader = useSelector((state: RootState) => state.resulstsList.loader)
     const imgURL = process.env.REACT_APP_IMG_URL
 
-    console.log(details)
+    console.log(details?.videos?.results[0]?.key)
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
+
 
     if (loader) {
         return (
@@ -40,10 +42,17 @@ const DetailsPage: FunctionComponent = () => {
                     Back
                 </div>
             </div>
-            {details?.video && <video className='details-video' autoPlay loop muted>
-                <source src='' type='video/mp4' />
-            </video>}
-            {!details?.video && <img src={`${imgURL}${details?.backdrop_path}`} className="details-image" />}
+            {details?.videos?.results[0]?.key &&
+                <iframe
+                    className='details-video'
+                    title='Youtube player'
+                    sandbox='allow-same-origin allow-forms allow-popups allow-scripts allow-presentation'
+                    src={`https://Youtube.com/embed/${details?.videos?.results[0]?.key}?autoplay=0`}
+                />
+            }
+            {!details?.videos?.results[0]?.key &&
+                <img src={details?.backdrop_path ? `${imgURL}${details?.backdrop_path}` : NoData} className="details-image" />
+            }
             <div className="details-info">
                 <h2>{details?.original_title}{details?.name}</h2>
                 <p>{details?.overview}</p>
