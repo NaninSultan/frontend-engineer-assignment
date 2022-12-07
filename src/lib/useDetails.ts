@@ -23,7 +23,7 @@ const useDetails = (id?: string) => {
                 const {
                     data
                 } = await axios.get<Details>(
-                    `${apiURL}/${searchState.toggle}/${id}?api_key=${API_KEY}=${searchState.search}&append_to_response=videos`
+                    `${apiURL}/${searchState.toggle}/${id}?api_key=${API_KEY}&append_to_response=videos`
                 );
                 setDetails(data);
             } catch (error) {

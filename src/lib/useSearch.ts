@@ -35,7 +35,7 @@ const useSearch = () => {
                         const {
                             data: { results },
                         } = await axios.get<Data>(
-                            `${apiURL}/search/${searchState.toggle}?api_key=${API_KEY}=${searchState.search}`
+                            `${apiURL}/search/${searchState.toggle}?api_key=${API_KEY}&query=${searchState.search}`
                         );
                         dispatch(setCards(results.slice(0, 10)));
                         console.log(results)

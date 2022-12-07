@@ -16,8 +16,6 @@ const Results: FunctionComponent = () => {
     useTopTen()
     useSearch()
 
-    console.log(resulstsList)
-
     if (loader) {
         return (
             <div className='spinner'>

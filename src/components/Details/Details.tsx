@@ -19,8 +19,6 @@ const DetailsPage: FunctionComponent = () => {
     const loader = useSelector((state: RootState) => state.resulstsList.loader)
     const imgURL = process.env.REACT_APP_IMG_URL
 
-    console.log(details?.videos?.results[0]?.key)
-
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
