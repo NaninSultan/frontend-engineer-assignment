@@ -4,13 +4,17 @@ import { Details } from "../@types";
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from "../store";
 import { setCards, setLoader } from "../features/resultsList/resultsListSlice";
+import { useNavigate } from 'react-router-dom'
+
+const API_KEY = process.env.REACT_APP_API_KEY
+const apiURL = process.env.REACT_APP_API_URL
 
 const useSearch = () => {
 
     const searchState = useSelector((state: RootState) => state.search)
     const resultsState = useSelector((state:RootState) => state.resulstsList)
-
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     type Data = {
         page: number;
@@ -24,15 +28,17 @@ const useSearch = () => {
 
             if (searchState.search.length > 2) {
                 const fetcher = async () => {
+                    navigate('/');
                     dispatch(setLoader(true));
 
                     try {
                         const {
                             data: { results },
                         } = await axios.get<Data>(
-                            `https://api.themoviedb.org/3/search/${searchState.toggle}?api_key=c8fda8dc1535e023305ff061bf3e4b99&query=${searchState.search}`
+                            `${apiURL}/search/${searchState.toggle}?api_key=${API_KEY}=${searchState.search}`
                         );
                         dispatch(setCards(results.slice(0, 10)));
+                        console.log(results)
                     } catch (error) {
                         console.log(error);
                     } finally {
@@ -44,7 +50,7 @@ const useSearch = () => {
         }, 1000)
 
         return () => clearTimeout(delayDebounceFn)
-    }, [searchState]);
+    }, [searchState.toggle, searchState.search]);
 
     return { resultsState };
 };

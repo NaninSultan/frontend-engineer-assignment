@@ -1,3 +1,3 @@
-import Details from "./Details";
+import DetailsPage from "./Details";
 
-export default Details;
+export default DetailsPage;

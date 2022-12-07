@@ -5,4 +5,5 @@ export type Details = {
     poster_path?: string;
     overview?: string;
     video?: boolean;
+    backdrop_path?: string
   };

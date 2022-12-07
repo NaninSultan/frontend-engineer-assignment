@@ -5,7 +5,7 @@ import "./Results.css";
 import { RootState } from "../../store";
 import { Details } from "../../@types";
 import { useTopTen, useSearch } from "../../lib";
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { TailSpin } from 'react-loader-spinner';
 
 const Results: FunctionComponent = () => {

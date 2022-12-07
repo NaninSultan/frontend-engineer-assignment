@@ -8,8 +8,9 @@
     width: 100%;
 }
 
-.details-info {
-
+.details-image {
+    width: 100%;
+    border: solid 2px cornflowerblue;
 }
 
 p {

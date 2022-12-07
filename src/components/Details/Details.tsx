@@ -1,15 +1,36 @@
-import React, { FunctionComponent, useEffect } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 import './Details.css'
 import { useDispatch } from 'react-redux';
 import { showSearch } from '../../features/search/searchSlice';
+import useDetails from "../../lib/useDetails";
+import { useSelector } from 'react-redux'
+import { RootState } from "../../store";
+import { TailSpin } from 'react-loader-spinner';
 
-const Details: FunctionComponent = () => {
+
+const DetailsPage: FunctionComponent = () => {
+
+    const { id } = useParams<{ id?: string }>()
+    const { details } = useDetails(id)
+    const loader = useSelector((state: RootState) => state.resulstsList.loader)
+    const imgURL = process.env.REACT_APP_IMG_URL
+
+    console.log(details)
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
+    if (loader) {
+        return (
+            <div className='spinner'>
+                <TailSpin color="#6495ed" height={80} width={80} />
+            </div>
+        )
+    }
 
     return (
         <div className="details-container">
@@ -19,16 +40,16 @@ const Details: FunctionComponent = () => {
                     Back
                 </div>
             </div>
-            {/* <video className='details-video' autoPlay loop muted>
+            {details?.video && <video className='details-video' autoPlay loop muted>
                 <source src='' type='video/mp4' />
-            </video> */}
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3fLK-LZ3Kw_ZlDyonlvaEj4yjCgNpmdY1sA&usqp=CAU" className="details-image" />
+            </video>}
+            {!details?.video && <img src={`${imgURL}${details?.backdrop_path}`} className="details-image" />}
             <div className="details-info">
-                <h2>Title</h2>
-                <p>Description eihpoeoif 1i fi1ioihfpo1fh porfh roefhoperp qeof pqero hor phur ehpor hgpuoh rgoh repogh rogh or ghoer hgoe hgoweh gwhg hwpogj hweprjg hwrjg hwer hgopowerh gojoewrh gwerhgoewr o rhgow hrgowhe rgohwer oghčwer gwer ghwr ghčwer ghwg hgr</p>
+                <h2>{details?.original_title}{details?.name}</h2>
+                <p>{details?.overview}</p>
             </div>
         </div>
     )
 }
 
-export default Details;
+export default DetailsPage;

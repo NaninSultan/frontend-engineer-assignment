@@ -10,7 +10,10 @@ const useTopTen = () => {
   const dispatch = useDispatch()
 
   const searchState = useSelector((state: RootState) => state.search)
-  const resultsState = useSelector((state:RootState) => state.resulstsList)
+  const resultsState = useSelector((state: RootState) => state.resulstsList)
+
+  const API_KEY = process.env.REACT_APP_API_KEY
+  const apiURL = process.env.REACT_APP_API_URL
 
   type Data = {
     page: number;
@@ -29,7 +32,7 @@ const useTopTen = () => {
             const {
               data: { results },
             } = await axios.get<Data>(
-              `https://api.themoviedb.org/3/${searchState.toggle}/top_rated?api_key=c8fda8dc1535e023305ff061bf3e4b99`
+              `${apiURL}/${searchState.toggle}/top_rated?api_key=${API_KEY}`
             );
             dispatch(setCards(results.slice(0, 10)));
           } catch (error) {
@@ -43,7 +46,7 @@ const useTopTen = () => {
     }, 1000)
 
     return () => clearTimeout(delayDebounceFn)
-  }, [searchState]);
+  }, [searchState.toggle]);
 
   return { resultsState };
 };

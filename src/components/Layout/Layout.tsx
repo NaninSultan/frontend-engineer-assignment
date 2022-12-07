@@ -2,7 +2,7 @@ import React, { ReactNode, FunctionComponent } from "react";
 import { search, showSearch } from '../../features/search/searchSlice';
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
 import "./Layout.css";
 import { RootState } from "../../store";
 
